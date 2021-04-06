@@ -29,6 +29,9 @@ export class ApiGatewayDemoStack extends cdk.Stack {
 
     //-----------------------------------------------------------------------------------
     // UC-0 - Mock Integration
+    //
+    // This implements the demo from the API Gateway docs below: 
+    // https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-mock-integration-console.html
     //-----------------------------------------------------------------------------------
 
     const uc0 = api.root.addResource("uc0");
@@ -70,6 +73,15 @@ export class ApiGatewayDemoStack extends cdk.Stack {
 
     //-----------------------------------------------------------------------------------
     // UC-1 - Lambda Proxy
+    //
+    // This is a demo of the "Lambda Proxy" integration, which means that API Gateway
+    // sends the original, unmodified request to Lambda and passes back the unmodified
+    // response back to the requestor. 
+    // The "Integration request" and "Integration response" sections are not used
+    // with this type of request, but you can still use the "Method request" and
+    // "Method response" sections.
+    //
+    // This section is not fully baked yet.  
     //-----------------------------------------------------------------------------------
 
     const uc1Function = new lambda.Function(this, 'UC1Function', {
